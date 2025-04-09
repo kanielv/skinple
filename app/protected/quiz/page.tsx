@@ -1,72 +1,30 @@
-"use client";
-import { useState } from 'react';
-import './quiz.css';
+// app/protected/quiz/page.tsx
+import { redirect } from 'next/navigation';
+import { createClient } from '@/utils/supabase/server';
+import QuizForm from './QuizForm';
 
-interface Quiz {
-  name: string;
-  isOily: boolean;
-  isDry: boolean;
-  isIchy: boolean;
-  
-}
+export default async function QuizPage() {
+    const supabase = await createClient();
 
-export default function MyForm() {
-    const [userName, setName] = useState("");
-    
-    // Check all checks to be an object
-    const allChecks = [
-      {name: "My skin feels oily",id:"oily", checked:false},
-      {name: "My skin feels dry",id:"dry", checked:false},
-      {name: "My skin feels different in some spots than others",id:"itchy", checked:false},
-      {name: "My skin seems sensitive and/or reacts to products easily",id:"sensitive", checked:false},
-      {name: "I am allergic",id:"latex", checked:false},
-    ]
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
 
-    const handleSubmit = (event: { preventDefault: () => void; }) => {
-        event.preventDefault();
-        console.log("Name", userName);
-        console.log("Results:", checks);
-      
+    if (!user) {
+        return redirect('/sign-in');
     }
 
-    const Checkbox= ({ isChecked, label, checkHandler, index }: {isChecked:any, label:any, checkHandler:any, index:any}) => {
-      return (
-        <div>
-          <input
-            type="checkbox"
-            id={`checkbox-${index}`}
-            checked={isChecked}
-            onChange={checkHandler}
-          />
-          <label htmlFor={`checkbox-${index}`}>{label}</label>
-        </div>
-      )
-    }
-    const[checks, setChecks] = useState(allChecks);
-    const updateCheckStatus = (index: any) => {
-      setChecks(checks.map((check, currentIndex) => currentIndex === index ? { ...check, checked: !check.checked } : check))
-    }
+    // Fetch allergies for the form TODO at some point should prolly edit quizform to not be checkboxes for this, some kinda search bar or something would be better for when we get a bunch of allergies
+    const { data: allergies } = await supabase
+        .from('allergies')
+        .select('*');
+
     return (
-        
-        <form onSubmit={handleSubmit}>
-        <label>Enter your name:
-          <input type="text" value = {userName} onChange={(e) => setName(e.target.value)}/>
-        </label>
-        <br />
-        <label> Check each box if you agree with the statement next to it:
-        {checks.map((check, index) => (
-        <Checkbox
-          key={check.name}
-          isChecked={check.checked}
-          checkHandler={() => updateCheckStatus(index)}
-          label={check.name}
-          index={index}
-        />
-      ))}
-      </label>
-        <br />
-        <input type="submit" />
-      </form>
-      
+        <div className="container mx-auto py-8">
+            <h1 className="text-2xl font-bold mb-6">Skincare Survey</h1>
+            <p className="mb-6">Tell us about your skin to get personalized recommendations</p>
+            
+            <QuizForm userId={user.id} allergies={allergies || []} />
+        </div>
     );
-  }
+}
