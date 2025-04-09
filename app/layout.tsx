@@ -31,8 +31,15 @@ export default function RootLayout({
   return (
     <html lang='en' className={geistSans.className} suppressHydrationWarning>
       <body className='bg-background text-foreground'>
-        <HeaderAuth />
-        <main>{children}</main>
+        <main>
+          <nav>
+          <HeaderAuth />
+          </nav>
+          <div>
+          {children}
+          </div> 
+          
+        </main>
       </body>
     </html>
   );
