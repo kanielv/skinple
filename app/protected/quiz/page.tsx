@@ -1,10 +1,19 @@
 "use client";
 import { useState } from 'react';
 import './quiz.css';
-import { CSVLink } from 'react-csv';
+
+interface Quiz {
+  name: string;
+  isOily: boolean;
+  isDry: boolean;
+  isIchy: boolean;
+  
+}
 
 export default function MyForm() {
     const [userName, setName] = useState("");
+    
+    // Check all checks to be an object
     const allChecks = [
       {name: "My skin feels oily",id:"oily", checked:false},
       {name: "My skin feels dry",id:"dry", checked:false},
@@ -15,11 +24,9 @@ export default function MyForm() {
 
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
-        alert(`The name you entered was: ${userName}`)
-        checks.forEach(element => {
-          alert(`The check you entered was: ${element.name} ${element.checked}`)
-        });
-
+        console.log("Name", userName);
+        console.log("Results:", checks);
+      
     }
 
     const Checkbox= ({ isChecked, label, checkHandler, index }: {isChecked:any, label:any, checkHandler:any, index:any}) => {
@@ -59,7 +66,6 @@ export default function MyForm() {
       </label>
         <br />
         <input type="submit" />
-        <CSVLink data={checks}>Download CSV</CSVLink>;
       </form>
       
     );
