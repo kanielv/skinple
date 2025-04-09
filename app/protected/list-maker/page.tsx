@@ -1,21 +1,17 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
-
+import ListMakerComponent from './ListMakerComponent';
 
 export default async function ListMaker() {
-    const supabase = await createClient();
+  const supabase = await createClient();
 
-    const {
-        data: { user },
-    } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-    if (!user) {
-        return redirect('/sign-in');
-    }
+  if (!user) {
+    return redirect('/sign-in');
+  }
 
-    return (
-        <>
-            List-Maker
-        </>
-    )
+  return <ListMakerComponent />;
 }
