@@ -1,29 +1,62 @@
+//Actions file for authenticated posting with client
 'use server';
 
 import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
 
-// Mock data for quiz
-
-export const quizSubmitAction = async () => {
-    // Quiz
-    // const skin_type = formData.get("skin_type");
-    // const price_min = formData.get("price_min");
-    // const price_max = formData.get("price_max");
-    // const allergies = formData.get("allergies");
-
-    // Initialize client
+export async function submitQuiz(formData: FormData) {
     const supabase = await createClient();
 
-    // Query user from user id
-    const {
-        data: { user },
-    } = await supabase.auth.getUser();
+    const { data: { user } } = await supabase.auth.getUser();
 
-    console.log(user?.id);
+    if (!user) {
+        redirect('/sign-in');
+    }
 
-    const { data, error } = await supabase.from("users").select();
-    console.log("Users", data);
-    // Insert to database
-    // const { error } = await supabase
-    //     .from('')
+    const skinType = formData.get('skinType')?.toString() || 'normal';
+
+    
+
+    const priceMin = formData.get('priceMin')
+    const priceMax = formData.get('priceMax');
+
+    // Update user profile
+    const { error: profileError } = await supabase
+        .from('users')
+        .upsert({
+            user_id: user.id,
+            skin_type: skinType,
+            price_min: priceMin,
+            price_max: priceMax
+        });
+
+    if (profileError) {
+        throw profileError;
+    }
+
+    await supabase
+        .from('user_allergies')
+        .delete()
+        .eq('user_id', user.id);
+
+    // Get selected allergies from form
+    const selectedAllergies = formData.getAll('allergies')
+        .map(allergy => Number(allergy));
+
+    if (selectedAllergies.length > 0) {
+        const allergyRecords = selectedAllergies.map(allergyId => ({
+            user_id: user.id,
+            allergy_id: allergyId
+        }));
+
+        const { error: allergyError } = await supabase
+            .from('user_allergies')
+            .insert(allergyRecords);
+
+        if (allergyError) {
+            throw allergyError;
+        }
+    }
+
+    redirect('/recommendations');
 }
