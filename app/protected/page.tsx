@@ -19,7 +19,7 @@ export default async function ProtectedPage() {
   const { data, error } = await getUserAction();
 
   if (!data) {
-    redirect('/protected/new-user');
+    redirect('/protected/quiz');
   }
 
   return (
