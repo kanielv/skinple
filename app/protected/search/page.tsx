@@ -1,9 +1,19 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
 import { getProducts, getProductsByName, getProductsByType, getProductsByPrice } from './actions';
+import ProductList from './product-list';
+import SearchCard from './search-card';
+import SearchBar from './search-bar'
+import Link from 'next/link'
+
+interface SearchPageProps {
+    searchParams?: {
+        page?: string
+    }
+}
 
 
-export default async function search() {
+export default async function search({ searchParams }: SearchPageProps) {
     const supabase = await createClient();
 
     const {
@@ -14,11 +24,9 @@ export default async function search() {
         return redirect('/sign-in');
     }
 
-    const { data, error } = await getProducts();
-    console.log("data", typeof(data));
     return (
         <>
-            search
+            <SearchBar />
         </>
     )
 }

@@ -1,4 +1,5 @@
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from '@/utils/supabase/client';
+
 import { redirect } from 'next/navigation';
 
 // gets the first 5 products
@@ -13,7 +14,7 @@ export async function getProducts(page: number = 1, pageSize: number = 10) {
         .select()
         .range(from, to)
 
-    return { data: data, error: error } 
+    return { data: data, error: error }
 
 }
 
@@ -21,12 +22,16 @@ export async function getProducts(page: number = 1, pageSize: number = 10) {
 export async function getProductsByName(name: string, page: number = 1, pageSize: number = 10) {
     const supabase = await createClient();
 
+    const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
     const { data, error } = await supabase
         .from('products')
         .select()
         .ilike('product_name', `%${name}%`)
+        .range(from, to)
 
-    console.log(data)
+    return { data: data, error: error }
 
 }
 
