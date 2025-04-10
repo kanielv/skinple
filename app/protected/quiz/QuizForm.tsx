@@ -41,32 +41,89 @@ const removeIngredient = (id: number) => {
 return (
     <form action={submitQuiz}>
         <input type="hidden" name="userId" value={userId} />
+        <hr></hr>
 
-        <label>Pick the option that best describes your skin:</label>
+        <label>How would you describe your skin's natural moisture level?</label>
         <div>
             <input type="radio" id="oily" name="skinType" value="oily" />
-            <label htmlFor="oily">My skin feels oily</label>
+            <label htmlFor="oily">My skin is generally shiny and oily.</label>
         </div>
         <div>
             <input type="radio" id="dry" name="skinType" value="dry" />
-            <label htmlFor="dry">My skin feels dry</label>
+            <label htmlFor="dry">My skin feels dry and flaky.</label>
         </div>
         <div>
             <input type="radio" id="itchy" name="skinType" value="combination" />
-            <label htmlFor="itchy">My skin feels different in some spots than others</label>
+            <label htmlFor="itchy">My skin is oily in some areas (like the T-zone) but dry in others.</label>
         </div>
         <div>
-            <input type="radio" id="sensitive" name="skinType" value="sensitive" />
-            <label htmlFor="sensitive">My skin seems sensitive and/or reacts to products easily</label>
+            <input type="radio" id="unsure" name="skinType" value="none" />
+            <label htmlFor="unsure">I'm not sure.</label>
         </div>
+        <hr></hr>
 
-        <label htmlFor="priceMin">Minimum Price (£):</label>
-        <input type="number" name="priceMin" id="priceMin" step="1" min="0" />
+        <label>What is the typical climate or environment where you live?</label>
+        <div>
+            <input type="radio" id="humid" name="climate" value="humid" />
+            <label htmlFor="humid">Very humid</label>
+        </div>
+        <div>
+            <input type="radio" id="someHumid" name="climate" value="someHumid" />
+            <label htmlFor="someHumid">Somewhat humid</label>
+        </div>
+        <div>
+            <input type="radio" id="average" name="climate" value="average" />
+            <label htmlFor="average">Average (neither very humid nor very dry)</label>
+        </div>
+        <div>
+            <input type="radio" id="someDry" name="climate" value="someDry" />
+            <label htmlFor="someDry">Somewhat dry</label>
+        </div>
+        <div>
+            <input type="radio" id="dry" name="climate" value="dry" />
+            <label htmlFor="dry">Very dry</label>
+        </div>
+        <hr></hr>
 
-        <label htmlFor="priceMax">Maximum Price (£):</label>
-        <input type="number" name="priceMax" id="priceMax" step="1" min="0" />
-            <br />
-        <label htmlFor="allergy-search">Search for your allergies:</label>
+        <label>Have you ever experienced irritation or redness after using skincare products?</label>
+        <div>
+            <input type="radio" id="oily" name="skinType" value="oily" />
+            <label htmlFor="oily">Yes</label>
+        </div>
+        <div>
+            <input type="radio" id="dry" name="skinType" value="dry" />
+            <label htmlFor="dry">No</label>
+        </div>
+        <hr></hr>
+
+        <label>If yes, what type of reaction did you experience? (Select all that apply)</label>
+        <div>
+            <input type="checkbox" id="oily" name="skinType" value="oily" />
+            <label htmlFor="oily">Redness</label>
+        </div>
+        <div>
+            <input type="checkbox" id="dry" name="skinType" value="dry" />
+            <label htmlFor="dry">Itchy</label>
+        </div>
+        <div>
+            <input type="checkbox" id="itchy" name="skinType" value="combination" />
+            <label htmlFor="itchy">Swelling</label>
+        </div>
+        <div>
+            <input type="checkbox" id="unsure" name="skinType" value="none" />
+            <label htmlFor="unsure">Rash</label>
+        </div>
+        <div>
+            <label htmlFor="reactionDetails">If other, please describe the reaction: </label>
+            <input
+            type="text"
+            id="reactionDetails"
+            name="reactionDetails"
+            placeholder="Describe your reaction..."
+            />
+        </div>
+        <hr></hr>
+        <label htmlFor="allergy-search">Which skincare ingredients do you want to avoid due to allergies or sensitivities? (E.g. fragrances - eugenol, preservatives - parabens, etc.) </label>
         <input
             id="allergy-search"
             type="text"
@@ -74,6 +131,15 @@ return (
             onChange={e => setQuery(e.target.value)}
             placeholder="Start typing an ingredient..."
         />
+        
+        <hr></hr>
+        <label htmlFor="priceMin">Minimum Price (£): </label>
+        <input type="number" name="priceMin" id="priceMin" step="1" min="0" placeholder="Start typing a price..."/>
+        <hr></hr>
+
+        <label htmlFor="priceMax">Maximum Price (£): </label>
+        <input type="number" name="priceMax" id="priceMax" step="1" min="0" placeholder="Start typing a price..."/>
+            <br />
 
         {query && (
             <ul className="border max-h-40 overflow-y-auto bg-white">
