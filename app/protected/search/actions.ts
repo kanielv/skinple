@@ -23,7 +23,7 @@ export async function getProductsByName(name: string, page: number = 1, pageSize
     const supabase = await createClient();
 
     const from = (page - 1) * pageSize;
-  const to = from + pageSize - 1;
+    const to = from + pageSize - 1;
 
     const { data, error } = await supabase
         .from('products')
@@ -44,11 +44,16 @@ export async function getProductsByType(type: string, page: number = 1, pageSize
 
     const { data, error } = await supabase
         .from('products')
-        .select('')
-        .eq('product_type', `${type}`)
+        .select('*')
+        .eq('product_type', type)
         .range(from, to)
 
-    console.log(data)
+    if (error) {
+        console.error('Error fetching products by type:', error.message);
+    }
+    console.log("TYPE", type)
+    console.log("Data", data)
+    return { data, error }; // Return the data and error
 
 }
 

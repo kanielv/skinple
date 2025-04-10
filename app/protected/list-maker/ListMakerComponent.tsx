@@ -1,54 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-
-const cleanIngredientsList = [
-  'capric triglyceride',
-  'cetyl alcohol',
-  'propanediol',
-  'stearyl alcohol',
-  'glycerin',
-  'sodium hyaluronate',
-  'arganine',
-  'aspartic acid',
-  'glycine',
-  'alanine',
-  'serine',
-  'valine',
-  'isoleucine',
-  'proline',
-  'threonine',
-  'histidine',
-  'phenylalanine',
-  'glucose',
-  'maltose',
-  'fructose',
-  'trehalose',
-  'sodium pca',
-  'pca',
-  'sodium lactate',
-  'urea',
-  'allantoin',
-  'linoleic acid',
-  'oleic acid',
-  'phytosteryl canola glycerides',
-  'palmitic acid',
-  'stearic acid',
-  'lecithin',
-  'triolein',
-  'tocopherol',
-  'carbomer',
-  'isoceteth-20',
-  'polysorbate 60',
-  'sodium chloride',
-  'citric acid',
-  'trisodium ethylenediamine disuccinate',
-  'pentylene glycol',
-  'triethanolamine',
-  'sodium hydroxide',
-  'phenoxyethanol',
-  'chlorphenesin',
-];
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 const products = [
   {
@@ -87,23 +40,53 @@ const products = [
 
 export default function ListMakerComponent() {
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedProducts, setSelectedProducts] = useState<typeof products>([]);
+  const [selectedProducts, setSelectedProducts] = useState<any[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
+
+  const router = useRouter();
+
+  // Sync with localStorage in real-time
+  useEffect(() => {
+    // Load initial products from localStorage
+    const storedProducts = JSON.parse(
+      localStorage.getItem('selectedProducts') || '[]'
+    );
+    setSelectedProducts(storedProducts);
+    setTotalPrice(
+      storedProducts.reduce((total: number, product: any) => total + product.price, 0)
+    );
+
+    // Listen for changes in localStorage
+    const handleStorageChange = () => {
+      const updatedProducts = JSON.parse(
+        localStorage.getItem('selectedProducts') || '[]'
+      );
+      setSelectedProducts(updatedProducts);
+      setTotalPrice(
+        updatedProducts.reduce((total: number, product: any) => total + product.price, 0)
+      );
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
-  };
-
-  const handleProductSelect = (product: any) => {
-    setSelectedProducts((prev) => [...prev, product]);
-    setTotalPrice((prev) => prev + product.price);
+    // Redirect to the Search page with the selected category as a query parameter
+    router.push(`/protected/search?category=${category}`);
   };
 
   const handleProductRemove = (product: any) => {
-    setSelectedProducts((prev) =>
-      prev.filter((p) => p.product_id !== product.product_id)
+    const updatedProducts = selectedProducts.filter(
+      (p) => p.product_id !== product.product_id
     );
+    setSelectedProducts(updatedProducts);
     setTotalPrice((prev) => Math.max(0, prev - product.price)); // Ensure totalPrice doesn't go below 0
+    localStorage.setItem('selectedProducts', JSON.stringify(updatedProducts));
   };
 
   const handleExportList = () => {
@@ -125,10 +108,6 @@ export default function ListMakerComponent() {
     URL.revokeObjectURL(url);
   };
 
-  const filteredProducts = products.filter(
-    (product) => product.product_type === selectedCategory
-  );
-
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">List Maker</h1>
@@ -139,55 +118,24 @@ export default function ListMakerComponent() {
         <div className="flex gap-2">
           <button
             className="px-4 py-2 bg-blue-500 text-white rounded"
-            onClick={() => handleCategorySelect('moisturizer')}
+            onClick={() => handleCategorySelect('Moisturiser')}
           >
             Moisturizer
           </button>
           <button
             className="px-4 py-2 bg-blue-500 text-white rounded"
-            onClick={() => handleCategorySelect('cleanser')}
+            onClick={() => handleCategorySelect('Cleanser')}
           >
             Cleanser
           </button>
           <button
             className="px-4 py-2 bg-blue-500 text-white rounded"
-            onClick={() => handleCategorySelect('toner')}
+            onClick={() => handleCategorySelect('Toner')}
           >
             Toner
           </button>
         </div>
       </div>
-
-      {/* Step 2: Select a product */}
-      {selectedCategory && (
-        <div className="mb-4">
-          <h2 className="text-lg font-semibold">
-            Select a {selectedCategory.charAt(0).toUpperCase() +
-              selectedCategory.slice(1)}
-          </h2>
-          <ul className="list-disc pl-5">
-            {filteredProducts.map((product) => (
-              <li key={product.product_id} className="mb-2">
-                <span className="font-medium">{product.product_name}</span> - $
-                {product.price.toFixed(2)}
-                <button
-                  className="ml-2 px-2 py-1 bg-green-500 text-white rounded"
-                  onClick={() => handleProductSelect(product)}
-                >
-                  Add
-                </button>
-                <ul className="ml-4 list-disc">
-                  {product.clean_ingreds.map((ingredient, index) => (
-                    <li key={index} className="text-sm text-gray-600">
-                      {ingredient}
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       {/* Step 3: Display selected products and total price */}
       <div>
@@ -202,8 +150,7 @@ export default function ListMakerComponent() {
                 className="text-blue-500 underline"
               >
                 {product.product_name}
-              </a>{' '}
-              - ${product.price.toFixed(2)}
+              </a>
               <button
                 className="ml-2 px-2 py-1 bg-red-500 text-white rounded"
                 onClick={() => handleProductRemove(product)}
@@ -214,7 +161,7 @@ export default function ListMakerComponent() {
           ))}
         </ul>
         <h3 className="mt-4 text-lg font-bold">
-          Total Price: ${totalPrice.toFixed(2)}
+          Total Price: 
         </h3>
         <button
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
