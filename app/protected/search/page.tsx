@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
+import { getProducts, getProductsByName, getProductsByType, getProductsByPrice } from './actions';
 
 
 export default async function search() {
@@ -13,6 +14,8 @@ export default async function search() {
         return redirect('/sign-in');
     }
 
+    const { data, error } = await getProducts();
+    console.log("data", typeof(data));
     return (
         <>
             search
