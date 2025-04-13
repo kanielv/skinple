@@ -184,7 +184,7 @@ return (
             </div>
         )}
         <br />
-        <button type="submit" className="submit-btn mt-4">Submit Quiz</button>
+        <button type="submit" className="submit-btn mt-4"><b>Submit Quiz</b></button>
     </form>
 );
 }
