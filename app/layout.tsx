@@ -7,6 +7,7 @@ import { Geist } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
 import './globals.css';
+import './../style.css';
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : 'http://localhost:3000';
@@ -33,13 +34,13 @@ export default function RootLayout({
         <main>
           <nav>
             <header className="flex justify-end items-center p-1 bg-white shadow-sm">
-              <div className="ml-auto">
+              <div className="ml-auto rightspace topspace">
                 <HeaderAuth />
               </div>
             </header>
 
             <div className="flex justify-between items-center p-1 bg-gray-50">
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 leftspace">
                 <Link href="/protected/quiz" className="text-gray-600 hover:text-gray-800">
                   Quiz
                 </Link>
@@ -48,7 +49,7 @@ export default function RootLayout({
                 </Link>
               </div>
 
-              <div>
+              <div className="rightspace">
                 <Link href="/protected/search" className="text-gray-600 hover:text-gray-800">
                   Search
                 </Link>

@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { submitQuiz } from './actions';
-
+import './quiz.css';
+import './../../../style.css';
 interface Ingredient {
 ingredient_id: number;
 name: string;
