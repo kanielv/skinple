@@ -29,36 +29,42 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={geistSans.className} suppressHydrationWarning>
-      <body className='bg-background text-foreground'>
+      <body className='bg-[#FEFCF3] text-foreground'>
         <main>
           <nav>
-            <header className="flex justify-end items-center p-1 bg-white shadow-sm">
-              <div className="ml-auto">
+            <header className='flex items-center justify-end bg-[#DBA39A] p-1 shadow-sm'>
+              <div className='ml-auto'>
                 <HeaderAuth />
               </div>
             </header>
 
-            <div className="flex justify-between items-center p-1 bg-gray-50">
-              <div className="flex space-x-4">
-                <Link href="/protected/quiz" className="text-gray-600 hover:text-gray-800">
+            <div className='flex items-center justify-between bg-[#F0DBDB] p-1'>
+              <div className='flex space-x-4'>
+                <Link
+                  href='/protected/quiz'
+                  className='text-gray-600 hover:text-gray-800'
+                >
                   Quiz
                 </Link>
-                <Link href="/protected/list-maker" className="text-gray-600 hover:text-gray-800">
+                <Link
+                  href='/protected/list-maker'
+                  className='text-gray-600 hover:text-gray-800'
+                >
                   Listmaker
                 </Link>
               </div>
 
               <div>
-                <Link href="/protected/search" className="text-gray-600 hover:text-gray-800">
+                <Link
+                  href='/protected/search'
+                  className='text-gray-600 hover:text-gray-800'
+                >
                   Search
                 </Link>
               </div>
             </div>
           </nav>
-          <div>
-            {children}
-          </div>
-
+          <div>{children}</div>
         </main>
       </body>
     </html>
