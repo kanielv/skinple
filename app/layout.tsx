@@ -47,6 +47,9 @@ export default function RootLayout({
                 <Link href="/protected/list-maker" className="text-gray-600 hover:text-gray-800">
                   Listmaker
                 </Link>
+                <Link href="/protected/recommendations" className="text-gray-600 hover:text-gray-800">
+                  Recommended
+                </Link>
               </div>
 
               <div className="rightspace">
