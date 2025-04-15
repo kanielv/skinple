@@ -24,7 +24,11 @@ export default async function ProtectedPage() {
 
   return (
     <div className='flex w-full flex-1 flex-col gap-12'>
-      
+    <b> Welcome back to Skinple! </b>
+    <ul>
+      <li>Try the quiz to recieve a list of recommended products!</li>
+      <li>Or, build your own list of skincare products with our listmaker!</li>
+    </ul>
     </div>
   );
 }
