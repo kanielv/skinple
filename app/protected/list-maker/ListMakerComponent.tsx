@@ -41,7 +41,7 @@ const products = [
 export default function ListMakerComponent() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedProducts, setSelectedProducts] = useState<any[]>([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0.0);
 
   const router = useRouter();
 
@@ -53,7 +53,7 @@ export default function ListMakerComponent() {
     );
     setSelectedProducts(storedProducts);
     setTotalPrice(
-      storedProducts.reduce((total: number, product: any) => total + product.price, 0)
+      storedProducts.reduce((total: number, product: any) => total + parseFloat(product.price.substring(1)), 0)
     );
 
     // Listen for changes in localStorage
@@ -63,7 +63,7 @@ export default function ListMakerComponent() {
       );
       setSelectedProducts(updatedProducts);
       setTotalPrice(
-        updatedProducts.reduce((total: number, product: any) => total + product.price, 0)
+        updatedProducts.reduce((total: number, product: any) => total +parseFloat(product.price.substring(1)), 0)
       );
     };
 
@@ -85,7 +85,7 @@ export default function ListMakerComponent() {
       (p) => p.product_id !== product.product_id
     );
     setSelectedProducts(updatedProducts);
-    setTotalPrice((prev) => Math.max(0, prev - product.price)); // Ensure totalPrice doesn't go below 0
+    setTotalPrice((prev) => Math.max(0, prev - parseFloat(product.price.substring(1)))); // Ensure totalPrice doesn't go below 0
     localStorage.setItem('selectedProducts', JSON.stringify(updatedProducts));
   };
 
@@ -161,7 +161,7 @@ export default function ListMakerComponent() {
           ))}
         </ul>
         <h3 className="mt-4 text-lg font-bold">
-          Total Price: 
+          Total Price: £{totalPrice}
         </h3>
         <button
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"

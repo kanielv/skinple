@@ -1,6 +1,7 @@
 import { createClient } from '@/utils/supabase/server';
 import { getRecommendedProducts } from './actions';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
 export default async function RecommendationsPage() {
 const supabase = await createClient();
@@ -36,7 +37,9 @@ return (
         ))}
         </div>
     ) : (
-        <p className="text-red-600 mt-4">No products match your filters.</p>
+        <p className="text-red-600 mt-4">No products match your filters. Retake the <Link href="/protected/quiz" className="text-gray-600 hover:text-gray-800">
+        Quiz
+      </Link> or take it if you haven't yet?</p>
     )}
     </div>
 );

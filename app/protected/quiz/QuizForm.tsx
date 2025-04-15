@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { submitQuiz } from './actions';
-
+import './quiz.css';
+import './../../../style.css';
 interface Ingredient {
 ingredient_id: number;
 name: string;
@@ -183,7 +184,7 @@ return (
             </div>
         )}
         <br />
-        <button type="submit" className="submit-btn mt-4">Submit Quiz</button>
+        <button type="submit" className="submit-btn mt-4"><b>Submit Quiz</b></button>
     </form>
 );
 }

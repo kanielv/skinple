@@ -17,10 +17,10 @@ const skinType = formData.get('skinType')?.toString() || 'normal';
 
 
 
-const priceMin = formData.get('priceMin')
-const priceMax = formData.get('priceMax');
+const priceMin = Number(formData.get('priceMin')) || 0;
 
-// Update user profile
+const priceMax = Number(formData.get('priceMin')) || 5000;
+//throw new Error(user.id + " aaaa " + skinType + " aaa " + priceMin + " aa " + priceMax);// Update user profile
 const { error: profileError } = await supabase
     .from('users')
     .upsert({

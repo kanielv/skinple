@@ -7,6 +7,7 @@ import { Geist } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
 import './globals.css';
+import './../style.css';
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : 'http://localhost:3000';
@@ -33,13 +34,13 @@ export default function RootLayout({
         <main>
           <nav>
             <header className='flex items-center justify-end bg-[#DBA39A] p-1 shadow-sm'>
-              <div className='ml-auto'>
+              <div className='rightspace topspace ml-auto'>
                 <HeaderAuth />
               </div>
             </header>
 
             <div className='flex items-center justify-between bg-[#F0DBDB] p-1'>
-              <div className='flex space-x-4'>
+              <div className='leftspace flex space-x-4'>
                 <Link
                   href='/protected/quiz'
                   className='text-gray-600 hover:text-gray-800'
@@ -52,9 +53,14 @@ export default function RootLayout({
                 >
                   Listmaker
                 </Link>
+                <Link
+                  href='/protected/recommendations'
+                  className='text-gray-600 hover:text-gray-800'
+                >
+                  Recommended
+                </Link>
               </div>
-
-              <div>
+              <div className='rightspace'>
                 <Link
                   href='/protected/search'
                   className='text-gray-600 hover:text-gray-800'
