@@ -104,17 +104,14 @@ return (
         </div>
         <div>
             <input type="checkbox" id="dum" name="dum" value="dum" />
-            <input type="checkbox" id="dry" name="reaction" value="dry" />
             <label htmlFor="dry">Itchy</label>
         </div>
         <div>
             <input type="checkbox" id="dum" name="dum" value="dum" />
-            <input type="checkbox" id="itchy" name="reaction" value="combination" />
             <label htmlFor="itchy">Swelling</label>
         </div>
         <div>
             <input type="checkbox" id="dum" name="dum" value="dum" />
-            <input type="checkbox" id="unsure" name="reaction" value="none" />
             <label htmlFor="unsure">Rash</label>
         </div>
         <div>
