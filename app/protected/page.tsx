@@ -33,12 +33,12 @@ export default async function ProtectedPage() {
         <h1
           style={{
             fontSize: '4rem',
-            fontWeight: 'light',
-            fontFamily: 'Lora, serif',
+            fontWeight: 'medium',
+            fontFamily: 'Geist Sans Serif, sans-serif', // Updated font
             color: '#4a4a4a',
-            whiteSpace: 'nowrap',
-            marginBottom: '10px', // Add spacing below the heading
-            marginTop: '75px',
+            whiteSpace: 'nowrap', // Prevent text wrapping
+            marginBottom: '20px', // Add spacing below the heading
+            marginTop: '120px',
           }}
         >
           Welcome back to Skinple!
@@ -48,7 +48,7 @@ export default async function ProtectedPage() {
             fontSize: '1.2rem',
             color: '#4a4a4a',
             marginBottom: '15px', // Add spacing below the paragraph
-            fontFamily: 'DM Sans, sans-serif',
+            fontFamily: 'Geist Sans Serif, sans-serif', // Updated font
           }}
         >
           Explore personalized skincare recommendations and build lists
@@ -72,7 +72,7 @@ export default async function ProtectedPage() {
               fontSize: '1.2rem',
               textDecoration: 'none',
               borderRadius: '8px',
-              fontFamily: 'DM Sans, sans-serif',
+              fontFamily: 'Geist Sans Serif, sans-serif', // Updated font
               textAlign: 'center',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
               whiteSpace: 'nowrap',
@@ -88,7 +88,7 @@ export default async function ProtectedPage() {
       {/* Right Section */}
       <div className='h-full w-1/2'>
         <img
-          src='/skinple2.webp'
+          src='/skinpleImage2.webp'
           alt='Skincare Model'
           style={{
             width: '100%',

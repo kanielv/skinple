@@ -10,26 +10,27 @@ export default async function Home() {
           paddingLeft: '5%',
         }}
       >
-        <h1
+<h1
           style={{
             fontSize: '4rem',
-            fontWeight: 'light',
-            fontFamily: 'Lora, serif',
+            fontWeight: 'medium',
+            fontFamily: 'Geist Sans Serif, sans-serif', // Updated font
             color: '#4a4a4a',
             marginBottom: '20px', // Add spacing below the heading
+            marginTop: '120px',
           }}
         >
-          Welcome back to Skinple!
+          Welcome to Skinple!
         </h1>
         <p
           style={{
             fontSize: '1.2rem',
             color: '#4a4a4a',
-            marginBottom: '30px', // Add spacing below the paragraph
-            fontFamily: 'DM Sans, sans-serif',
+            marginBottom: '15px', // Add spacing below the paragraph
+            fontFamily: 'Geist Sans Serif, sans-serif', // Updated font
           }}
         >
-          Explore personalized skincare recommendations and build your own list
+          Explore personalized skincare recommendations and build lists
           of products.
         </p>
         <div
@@ -66,7 +67,7 @@ export default async function Home() {
       {/* Right Section */}
       <div className='h-full w-1/2'>
         <img
-          src='/skinple2.webp'
+          src='/skinpleImage2.webp'
           alt='Skincare Model'
           style={{
             width: '100%',
