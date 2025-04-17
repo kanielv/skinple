@@ -124,6 +124,8 @@ export default function SearchBar() {
           productId={product.product_id}
           type={product.product_type}
           price={`${product.price}`}
+          description={product.description}
+          product_link={product.product_url}
         />
         <button
           className='mt-2 w-full rounded px-4 py-2 text-white'
