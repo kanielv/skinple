@@ -28,7 +28,8 @@ return (
             <br />
             <p>Description: {product.description}</p>
             <br />
-            <p>Ingredients: {product.clean_ingreds}</p>
+            <p>Ingredients: {product.clean_ingreds.replace(/['[\];]/g, '')}</p>
+            
             <p className="text-sm text-gray-600">{product.product_type}</p>
             <a
                 href={product.product_url}
