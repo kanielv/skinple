@@ -45,7 +45,7 @@ export default function RootLayout({
                   href='/protected/quiz'
                   className='text-gray-600 hover:text-gray-800'
                 >
-                  Quiz
+                  Survey
                 </Link>
                 <Link
                   href='/protected/list-maker'

@@ -11,6 +11,7 @@ if (!user) redirect('/sign-in');
 
 const { filtered, debug } = await getRecommendedProducts(user.id);
 
+
 return (
     <div className="container mx-auto py-8">
     <h1 className="text-2xl font-bold mb-6">Your Recommended Products</h1>
@@ -24,6 +25,9 @@ return (
             >
             <h2 className="text-lg font-semibold">{product.product_name}</h2>
             <p>Price: {product.price}</p>
+            <br />
+            <p>Description: {product.description}</p>
+            <br />
             <p>Ingredients: {product.clean_ingreds}</p>
             <p className="text-sm text-gray-600">{product.product_type}</p>
             <a
@@ -38,7 +42,7 @@ return (
         </div>
     ) : (
         <p className="text-red-600 mt-4">No products match your filters. Retake the <Link href="/protected/quiz" className="text-gray-600 hover:text-gray-800">
-        Quiz
+        Survey
       </Link> or take it if you haven't yet?</p>
     )}
     </div>
