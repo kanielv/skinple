@@ -45,8 +45,8 @@ export default async function RecommendationsPage() {
 
               {/* Pass the product object to the Client Component */}
               <div className='mt-4'>
-                <AddToListButton product={product} />
-              </div>
+              <AddToListButton product={product} />
+            </div>
             </div>
           ))}
         </div>

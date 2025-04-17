@@ -13,23 +13,26 @@ export default async function Home() {
         <h1
           style={{
             fontSize: '4rem',
-            fontWeight: 'light',
-            fontFamily: 'Lora, serif',
+            fontWeight: 'medium',
+            fontFamily: 'Geist Sans, sans-serif',
             color: '#4a4a4a',
-            marginBottom: '20px', // Add spacing below the heading
+            whiteSpace: 'nowrap',
+            marginBottom: '10px',
+            marginTop: '120px',
           }}
         >
-          Welcome back to Skinple!
+          Welcome to Skinple!
         </h1>
         <p
           style={{
             fontSize: '1.2rem',
             color: '#4a4a4a',
-            marginBottom: '30px', // Add spacing below the paragraph
-            fontFamily: 'DM Sans, sans-serif',
+            marginBottom: '15px', 
+            fontFamily: 'Geist Sans, sans-serif',
+            marginLeft: '4px', 
           }}
         >
-          Explore personalized skincare recommendations and build your own list
+          Explore personalized skincare recommendations and build lists
           of products.
         </p>
         <div
@@ -50,7 +53,7 @@ export default async function Home() {
               fontSize: '1.2rem',
               textDecoration: 'none',
               borderRadius: '8px',
-              fontFamily: 'DM Sans, sans-serif',
+              fontFamily: 'Geist Sans, sans-serif', 
               textAlign: 'center',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
               whiteSpace: 'nowrap',
@@ -58,7 +61,7 @@ export default async function Home() {
               minWidth: '220px',
             }}
           >
-            Get Started!
+            Take the survey!
           </a>
         </div>
       </div>
@@ -66,7 +69,7 @@ export default async function Home() {
       {/* Right Section */}
       <div className='h-full w-1/2'>
         <img
-          src='/skinple2.webp'
+          src='/skinpleImage2.webp'
           alt='Skincare Model'
           style={{
             width: '100%',
