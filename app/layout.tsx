@@ -36,6 +36,16 @@ export default function RootLayout({
           <NavBar />
           {/* <nav>
             <header className='flex items-center justify-end bg-[#DBA39A] p-1 shadow-sm'>
+              <div className='leftspace '>
+                <b> <h5>
+                  &nbsp; &nbsp; &nbsp; <Link style={{color:"black"}}
+                  href='/'
+                  className='text-gray-600 hover:text-gray-800'
+                >
+                  Skinple
+                </Link>
+                  </h5> </b>
+              </div>
               <div className='rightspace topspace ml-auto'>
                 <HeaderAuth />
               </div>
