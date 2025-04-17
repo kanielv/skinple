@@ -88,30 +88,30 @@ return (
 
         <label>Have you ever experienced irritation or redness after using skincare products?</label>
         <div>
-            <input type="radio" id="oily" name="skinType" value="oily" />
+            <input type="radio" id="oily" name="irritation" value="oily" />
             <label htmlFor="oily">Yes</label>
         </div>
         <div>
-            <input type="radio" id="dry" name="skinType" value="dry" />
+            <input type="radio" id="dry" name="irritation" value="dry" />
             <label htmlFor="dry">No</label>
         </div>
         <hr></hr>
 
         <label>If yes, what type of reaction did you experience? (Select all that apply)</label>
         <div>
-            <input type="checkbox" id="oily" name="skinType" value="oily" />
+            <input type="checkbox" id="oily" name="reaction" value="oily" />
             <label htmlFor="oily">Redness</label>
         </div>
         <div>
-            <input type="checkbox" id="dry" name="skinType" value="dry" />
+            <input type="checkbox" id="dry" name="reaction" value="dry" />
             <label htmlFor="dry">Itchy</label>
         </div>
         <div>
-            <input type="checkbox" id="itchy" name="skinType" value="combination" />
+            <input type="checkbox" id="itchy" name="reaction" value="combination" />
             <label htmlFor="itchy">Swelling</label>
         </div>
         <div>
-            <input type="checkbox" id="unsure" name="skinType" value="none" />
+            <input type="checkbox" id="unsure" name="reaction" value="none" />
             <label htmlFor="unsure">Rash</label>
         </div>
         <div>
