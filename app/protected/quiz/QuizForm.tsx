@@ -88,29 +88,32 @@ return (
 
         <label>Have you ever experienced irritation or redness after using skincare products?</label>
         <div>
-            <input type="radio" id="oily" name="irritation" value="oily" />
-            <label htmlFor="oily">Yes</label>
+            <input type="radio" id="sensitive" name="sensitivity" value="true" />
+            <label htmlFor="sensitive">Yes</label>
         </div>
         <div>
-            <input type="radio" id="dry" name="irritation" value="dry" />
-            <label htmlFor="dry">No</label>
+            <input type="radio" id="notsensitive" name="sensitivity" value="false" />
+            <label htmlFor="notsensitive">No</label>
         </div>
         <hr></hr>
 
         <label>If yes, what type of reaction did you experience? (Select all that apply)</label>
         <div>
-            <input type="checkbox" id="oily" name="reaction" value="oily" />
+            <input type="checkbox" id="dum" name="dum" value="dum" />
             <label htmlFor="oily">Redness</label>
         </div>
         <div>
+            <input type="checkbox" id="dum" name="dum" value="dum" />
             <input type="checkbox" id="dry" name="reaction" value="dry" />
             <label htmlFor="dry">Itchy</label>
         </div>
         <div>
+            <input type="checkbox" id="dum" name="dum" value="dum" />
             <input type="checkbox" id="itchy" name="reaction" value="combination" />
             <label htmlFor="itchy">Swelling</label>
         </div>
         <div>
+            <input type="checkbox" id="dum" name="dum" value="dum" />
             <input type="checkbox" id="unsure" name="reaction" value="none" />
             <label htmlFor="unsure">Rash</label>
         </div>
@@ -134,11 +137,11 @@ return (
         />
         
         <hr></hr>
-        <label htmlFor="priceMin">Minimum Price (£): </label>
+        <label htmlFor="priceMin">Minimum Price ($): </label>
         <input type="number" name="priceMin" id="priceMin" step="1" min="0" placeholder="Start typing a price..."/>
         <hr></hr>
 
-        <label htmlFor="priceMax">Maximum Price (£): </label>
+        <label htmlFor="priceMax">Maximum Price ($): </label>
         <input type="number" name="priceMax" id="priceMax" step="1" min="0" placeholder="Start typing a price..."/>
             <br />
 
@@ -184,7 +187,7 @@ return (
             </div>
         )}
         <br />
-        <button type="submit" className="submit-btn mt-4"><b>Submit Quiz</b></button>
+        <button type="submit" className="submit-btn mt-4"><b>Submit Survey</b></button>
     </form>
 );
 }
