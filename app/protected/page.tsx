@@ -36,7 +36,9 @@ export default async function ProtectedPage() {
             fontWeight: 'light',
             fontFamily: 'Lora, serif',
             color: '#4a4a4a',
+            whiteSpace: 'nowrap',
             marginBottom: '20px', // Add spacing below the heading
+            marginTop: '75px',
           }}
         >
           Welcome back to Skinple!
