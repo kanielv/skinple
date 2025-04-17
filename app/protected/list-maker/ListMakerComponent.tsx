@@ -3,40 +3,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-const products = [
-  {
-    product_id: 1,
-    product_name: 'Cerave Moisturizer',
-    product_url: 'https://example.com/cerave-moisturizer',
-    product_type: 'moisturizer',
-    clean_ingreds: ['glycerin', 'sodium hyaluronate', 'capric triglyceride'],
-    price: 12.99,
-  },
-  {
-    product_id: 2,
-    product_name: 'Neutrogena Cleanser',
-    product_url: 'https://example.com/neutrogena-cleanser',
-    product_type: 'cleanser',
-    clean_ingreds: ['phenoxyethanol', 'sodium chloride', 'citric acid'],
-    price: 8.99,
-  },
-  {
-    product_id: 3,
-    product_name: 'La Roche-Posay Toner',
-    product_url: 'https://example.com/la-roche-toner',
-    product_type: 'toner',
-    clean_ingreds: ['glycerin', 'citric acid', 'sodium hydroxide'],
-    price: 14.99,
-  },
-  {
-    product_id: 4,
-    product_name: 'Cetaphil Moisturizer',
-    product_url: 'https://example.com/cetaphil-moisturizer',
-    product_type: 'moisturizer',
-    clean_ingreds: ['propanediol', 'phenoxyethanol', 'triethanolamine'],
-    price: 10.99,
-  },
-];
 
 export default function ListMakerComponent() {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -134,6 +100,36 @@ export default function ListMakerComponent() {
           >
             Toner
           </button>
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+            onClick={() => handleCategorySelect('Serum')}
+          >
+            Serum
+          </button>
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+            onClick={() => handleCategorySelect('Oil')}
+          >
+            Oil
+          </button>
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+            onClick={() => handleCategorySelect('Mask')}
+          >
+            Mask
+          </button>
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+            onClick={() => handleCategorySelect('Exfoliator')}
+          >
+            Exfoliator
+          </button>
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+            onClick={() => handleCategorySelect('Body Wash')}
+          >
+            Body Wash
+          </button>
         </div>
       </div>
 
@@ -161,7 +157,7 @@ export default function ListMakerComponent() {
           ))}
         </ul>
         <h3 className="mt-4 text-lg font-bold">
-          Total Price: £{totalPrice}
+          Total Price: ${totalPrice}
         </h3>
         <button
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
