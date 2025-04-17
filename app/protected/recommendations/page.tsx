@@ -2,6 +2,7 @@ import { createClient } from '@/utils/supabase/server';
 import { getRecommendedProducts } from './actions';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import AddToListButton from './AddToListButton'; // Import the Client Component
 
 export default async function RecommendationsPage() {
   const supabase = await createClient();
@@ -41,6 +42,11 @@ export default async function RecommendationsPage() {
               >
                 View Product
               </a>
+
+              {/* Pass the product object to the Client Component */}
+              <div className='mt-4'>
+                <AddToListButton product={product} />
+              </div>
             </div>
           ))}
         </div>
