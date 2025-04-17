@@ -1,39 +1,39 @@
 h5 {
-    font-size:20px
+  font-size: 20px;
 }
 h3 {
-    font-size: 18px
+  font-size: 18px;
 }
 h1 {
-    font-size:36px
+  font-size: 36px;
 }
 .half {
-    width: 30%;
-    text-align: center;
+  width: 30%;
+  text-align: center;
 }
 .button {
-    background-color: gray;
-    width: 10%;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  background-color: gray;
+  width: 10%;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
- /* unvisited link */
+/* unvisited link */
 .link {
-    color: rgb(130, 108, 255);
-  }
-  
-  /* visited link */
-  .link:visited {
-    color: rgb(192, 133, 255);
-  }
-  
-  /* mouse over link */
-  .link:hover {
-    color: rgb(86, 117, 255);
-  }
-  
-  /* selected link */
-  .link:active {
-    color: rgb(33, 33, 255);
-  } 
+  color: rgb(130, 108, 255);
+}
+
+/* visited link */
+.link:visited {
+  color: rgb(192, 133, 255);
+}
+
+/* mouse over link */
+.link:hover {
+  color: rgb(86, 117, 255);
+}
+
+/* selected link */
+.link:active {
+  color: rgb(33, 33, 255);
+}

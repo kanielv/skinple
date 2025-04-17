@@ -1,16 +1,11 @@
-import Hero from '@/components/hero';
-import ConnectSupabaseSteps from '@/components/tutorial/connect-supabase-steps';
-import SignUpUserSteps from '@/components/tutorial/sign-up-user-steps';
-import { hasEnvVars } from '@/utils/supabase/check-env-vars';
 import './homepage.css';
-import Image from 'next/image';
 
 export default async function Home() {
   return (
-    <div className="flex w-full h-screen">
+    <div className='flex h-screen w-full'>
       {/* Left Section */}
       <div
-        className="flex flex-col justify-start items-start w-1/2 p-8"
+        className='flex w-1/2 flex-col items-start justify-start p-8'
         style={{
           paddingLeft: '5%',
         }}
@@ -34,18 +29,19 @@ export default async function Home() {
             fontFamily: 'DM Sans, sans-serif',
           }}
         >
-          Explore personalized skincare recommendations and build your own list of products.
+          Explore personalized skincare recommendations and build your own list
+          of products.
         </p>
         <div
-          className="mt-6"
+          className='mt-6'
           style={{
             display: 'flex',
             justifyContent: 'center',
           }}
         >
           <a
-            href="/protected/quiz"
-            className="button"
+            href='/protected/quiz'
+            className='button'
             style={{
               display: 'inline-block',
               padding: '12px 32px',
@@ -68,10 +64,10 @@ export default async function Home() {
       </div>
 
       {/* Right Section */}
-      <div className="w-1/2 h-full">
+      <div className='h-full w-1/2'>
         <img
-          src="/skinple2.webp"
-          alt="Skincare Model"
+          src='/skinple2.webp'
+          alt='Skincare Model'
           style={{
             width: '100%',
             height: '100%',
@@ -83,4 +79,3 @@ export default async function Home() {
     </div>
   );
 }
-

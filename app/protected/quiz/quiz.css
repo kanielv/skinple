@@ -1,14 +1,14 @@
-input{
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid black;
-  }
-  select{
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid black;
-  }
-  button {
-    border: 2px solid black;
-    padding: 5px;
-  }
+input {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid black;
+}
+select {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid black;
+}
+button {
+  border: 2px solid black;
+  padding: 5px;
+}

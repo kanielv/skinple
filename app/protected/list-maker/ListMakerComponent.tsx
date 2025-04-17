@@ -4,13 +4,11 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { saveListToDatabase } from './actions';
 
-
-
 export default function ListMakerComponent() {
-  const [selectedCategory, setSelectedCategory] = useState('');
+  // const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedProducts, setSelectedProducts] = useState<any[]>([]);
   const [totalPrice, setTotalPrice] = useState(0.0);
-  const [listName, setListName] = useState(''); 
+  const [listName, setListName] = useState('');
 
   const router = useRouter();
 
@@ -18,21 +16,29 @@ export default function ListMakerComponent() {
   useEffect(() => {
     // Load initial products from localStorage
     const storedProducts = JSON.parse(
-      localStorage.getItem('selectedProducts') || '[]'
+      localStorage.getItem('selectedProducts') || '[]',
     );
     setSelectedProducts(storedProducts);
     setTotalPrice(
-      storedProducts.reduce((total: number, product: any) => total + parseFloat(product.price.substring(1)), 0)
+      storedProducts.reduce(
+        (total: number, product: any) =>
+          total + parseFloat(product.price.substring(1)),
+        0,
+      ),
     );
 
     // Listen for changes in localStorage
     const handleStorageChange = () => {
       const updatedProducts = JSON.parse(
-        localStorage.getItem('selectedProducts') || '[]'
+        localStorage.getItem('selectedProducts') || '[]',
       );
       setSelectedProducts(updatedProducts);
       setTotalPrice(
-        updatedProducts.reduce((total: number, product: any) => total +parseFloat(product.price.substring(1)), 0)
+        updatedProducts.reduce(
+          (total: number, product: any) =>
+            total + parseFloat(product.price.substring(1)),
+          0,
+        ),
       );
     };
 
@@ -44,17 +50,19 @@ export default function ListMakerComponent() {
   }, []);
 
   const handleCategorySelect = (category: string) => {
-    setSelectedCategory(category);
+    // setSelectedCategory(category);
     // Redirect to the Search page with the selected category as a query parameter
     router.push(`/protected/search?category=${category}`);
   };
 
   const handleProductRemove = (product: any) => {
     const updatedProducts = selectedProducts.filter(
-      (p) => p.product_id !== product.product_id
+      (p) => p.product_id !== product.product_id,
     );
     setSelectedProducts(updatedProducts);
-    setTotalPrice((prev) => Math.max(0, prev - parseFloat(product.price.substring(1)))); // Ensure totalPrice doesn't go below 0
+    setTotalPrice((prev) =>
+      Math.max(0, prev - parseFloat(product.price.substring(1))),
+    ); // Ensure totalPrice doesn't go below 0
     localStorage.setItem('selectedProducts', JSON.stringify(updatedProducts));
   };
 
@@ -93,7 +101,7 @@ export default function ListMakerComponent() {
         type: 'application/json',
       });
 
-      const message = await saveListToDatabase(blob, listName); 
+      const message = await saveListToDatabase(blob, listName);
       alert(message);
     } catch (error) {
       alert(error.message);
@@ -101,56 +109,56 @@ export default function ListMakerComponent() {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">List Maker</h1>
+    <div className='p-4'>
+      <h1 className='mb-4 text-2xl font-bold'>List Maker</h1>
 
-      <div className="mb-4">
-        <h2 className="text-lg font-semibold">Select a Category</h2>
-        <div className="flex gap-2">
+      <div className='mb-4'>
+        <h2 className='text-lg font-semibold'>Select a Category</h2>
+        <div className='flex gap-2'>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className='rounded bg-blue-500 px-4 py-2 text-white'
             onClick={() => handleCategorySelect('Moisturiser')}
           >
             Moisturizer
           </button>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className='rounded bg-blue-500 px-4 py-2 text-white'
             onClick={() => handleCategorySelect('Cleanser')}
           >
             Cleanser
           </button>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className='rounded bg-blue-500 px-4 py-2 text-white'
             onClick={() => handleCategorySelect('Toner')}
           >
             Toner
           </button>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className='rounded bg-blue-500 px-4 py-2 text-white'
             onClick={() => handleCategorySelect('Serum')}
           >
             Serum
           </button>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className='rounded bg-blue-500 px-4 py-2 text-white'
             onClick={() => handleCategorySelect('Oil')}
           >
             Oil
           </button>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className='rounded bg-blue-500 px-4 py-2 text-white'
             onClick={() => handleCategorySelect('Mask')}
           >
             Mask
           </button>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className='rounded bg-blue-500 px-4 py-2 text-white'
             onClick={() => handleCategorySelect('Exfoliator')}
           >
             Exfoliator
           </button>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className='rounded bg-blue-500 px-4 py-2 text-white'
             onClick={() => handleCategorySelect('Body Wash')}
           >
             Body Wash
@@ -158,35 +166,35 @@ export default function ListMakerComponent() {
         </div>
       </div>
 
-      <div className="mb-4">
-        <h2 className="text-lg font-semibold">Name Your List</h2>
+      <div className='mb-4'>
+        <h2 className='text-lg font-semibold'>Name Your List</h2>
         <input
-          type="text"
+          type='text'
           value={listName}
           onChange={(e) => setListName(e.target.value)}
-          placeholder="Enter list name"
-          className="px-4 py-2 border rounded"
+          placeholder='Enter list name'
+          className='rounded border px-4 py-2'
           style={{
-            width: '10%', 
+            width: '10%',
           }}
         />
       </div>
 
       <div>
-        <h2 className="text-lg font-semibold">Selected Products</h2>
-        <ul className="list-disc pl-5">
+        <h2 className='text-lg font-semibold'>Selected Products</h2>
+        <ul className='list-disc pl-5'>
           {selectedProducts.map((product) => (
-            <li key={product.product_id} className="mb-2">
+            <li key={product.product_id} className='mb-2'>
               <a
                 href={product.product_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 underline"
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-blue-500 underline'
               >
                 {product.product_name}
               </a>
               <button
-                className="ml-2 px-2 py-1 bg-red-500 text-white rounded"
+                className='ml-2 rounded bg-red-500 px-2 py-1 text-white'
                 onClick={() => handleProductRemove(product)}
               >
                 Remove
@@ -194,18 +202,16 @@ export default function ListMakerComponent() {
             </li>
           ))}
         </ul>
-        <h3 className="mt-4 text-lg font-bold">
-          Total Price: ${totalPrice}
-        </h3>
-        <div className="flex gap-4 mt-4">
+        <h3 className='mt-4 text-lg font-bold'>Total Price: ${totalPrice}</h3>
+        <div className='mt-4 flex gap-4'>
           <button
-            className="px-4 py-2 bg-green-500 text-white rounded"
+            className='rounded bg-green-500 px-4 py-2 text-white'
             onClick={handleSaveList}
           >
             Save List
           </button>
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className='rounded bg-blue-500 px-4 py-2 text-white'
             onClick={handleExportList}
           >
             Export List
