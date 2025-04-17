@@ -34,54 +34,6 @@ export default function RootLayout({
       <body className='bg-[#f8edeb] text-foreground'>
         <main>
           <NavBar />
-          {/* <nav>
-            <header className='flex items-center justify-end bg-[#DBA39A] p-1 shadow-sm'>
-              <div className='leftspace '>
-                <b> <h5>
-                  &nbsp; &nbsp; &nbsp; <Link style={{color:"black"}}
-                  href='/'
-                  className='text-gray-600 hover:text-gray-800'
-                >
-                  Skinple
-                </Link>
-                  </h5> </b>
-              </div>
-              <div className='rightspace topspace ml-auto'>
-                <HeaderAuth />
-              </div>
-            </header>
-
-            <div className='flex items-center justify-between bg-[#F0DBDB] p-1'>
-              <div className='leftspace flex space-x-4'>
-                <Link
-                  href='/protected/quiz'
-                  className='text-gray-600 hover:text-gray-800'
-                >
-                  Survey
-                </Link>
-                <Link
-                  href='/protected/list-maker'
-                  className='text-gray-600 hover:text-gray-800'
-                >
-                  Listmaker
-                </Link>
-                <Link
-                  href='/protected/recommendations'
-                  className='text-gray-600 hover:text-gray-800'
-                >
-                  Recommended
-                </Link>
-              </div>
-              <div className='rightspace'>
-                <Link
-                  href='/protected/search'
-                  className='text-gray-600 hover:text-gray-800'
-                >
-                  Search
-                </Link>
-              </div>
-            </div>
-          </nav> */}
           <div>{children}</div>
         </main>
       </body>
