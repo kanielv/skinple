@@ -5,19 +5,89 @@ import { hasEnvVars } from '@/utils/supabase/check-env-vars';
 import './homepage.css';
 export default async function Home() {
   return (
-    <div className='flex w-full flex-1 flex-col gap-8 leftspace2 topspace'>
-    <h3> <b>Welcome to Skinple!</b></h3>
+    <div className="flex w-full h-screen">
+    {/* Left Section */}
+    <div
+      className="flex flex-col justify-center items-start w-1/2 p-8"
+      style={{
+        paddingLeft: '5%', // Added extra left padding to move content to the right
+      }}
+  >
+    <h1
+      style={{
+        fontSize: '4rem',
+        fontWeight: 'light',
+        fontFamily: 'Lora, serif',
+        color: '#333',
+      }}
+    >
+      Welcome to Skinple!
+    </h1>
+    <p
+      style={{
+        fontSize: '1.2rem',
+        color: '#555',
+        marginTop: '10px',
+        fontFamily: 'DM Sans, sans-serif',
+      }}
+    >
+      Explore personalized skincare recommendations and build your own list of products.
+    </p>
+    {/* <p
+      style={{
+        fontSize: '1.2rem',
+        color: '#555',
+        marginTop: '10px',
+        fontFamily: 'DM Sans, sans-serif',
+      }}
+    >
+      We believe everyone should be able to easily find skincare that works for them!
+    </p> */}
+    <div
+      className="mt-6"
+      style={{
+        display: 'flex',
+        justifyContent: 'center', 
+      }}
+    >
+      <a
+        href="/protected/quiz"
+        className="button"
+        style={{
+          display: 'inline-block',
+          padding: '12px 32px',
+          backgroundColor: '#ffb5a7', 
+          color: '#fff', 
+          fontSize: '1.2rem',
+          textDecoration: 'none', 
+          borderRadius: '8px', 
+          fontFamily: 'DM Sans, sans-serif', 
+          textAlign: 'center', 
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+          whiteSpace: 'nowrap', 
+          cursor: 'pointer', 
+          minWidth: '210px', 
+        }}
+      >
+        Get Started!
+      </a>
+    </div>
+  </div>
 
-    <img 
-      src='./app/new-high-glass-glass-bottle-came.png'
-      alt="skincare bottles" 
-      style={{ float: 'right', marginLeft: '10px' }} 
+  {/* Right Section */}
+  <div className="w-1/2 h-full">
+    <img
+      src="./app/skinple2.webp"
+      alt="Skincare Model"
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        borderRadius: '10px',
+      }}
     />
-    <div className='half'>
-    <h1 style={{color:'#ffb5a7'}}> We believe everyone should be able to easily find skincare that works for them!</h1>
-    </div>
-    <br/>
-    
-    </div>
+  </div>
+</div>
   );
 }
+

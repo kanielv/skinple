@@ -85,10 +85,10 @@ export default async function ProtectedPage() {
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
           whiteSpace: 'nowrap', 
           cursor: 'pointer', 
-          minWidth: '210px', 
+          minWidth: '220px', 
         }}
       >
-        Retake the quiz!
+        Retake the survey!
       </a>
     </div>
   </div>
