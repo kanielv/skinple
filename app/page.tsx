@@ -3,6 +3,8 @@ import ConnectSupabaseSteps from '@/components/tutorial/connect-supabase-steps';
 import SignUpUserSteps from '@/components/tutorial/sign-up-user-steps';
 import { hasEnvVars } from '@/utils/supabase/check-env-vars';
 import './homepage.css';
+import Image from 'next/image';
+
 export default async function Home() {
   return (
     <div className="flex w-full h-screen">
@@ -33,16 +35,7 @@ export default async function Home() {
     >
       Explore personalized skincare recommendations and build your own list of products.
     </p>
-    {/* <p
-      style={{
-        fontSize: '1.2rem',
-        color: '#555',
-        marginTop: '10px',
-        fontFamily: 'DM Sans, sans-serif',
-      }}
-    >
-      We believe everyone should be able to easily find skincare that works for them!
-    </p> */}
+  
     <div
       className="mt-6"
       style={{
@@ -77,7 +70,7 @@ export default async function Home() {
   {/* Right Section */}
   <div className="w-1/2 h-full">
     <img
-      src="./app/skinple2.webp"
+      src="/skinple2.webp"
       alt="Skincare Model"
       style={{
         width: '100%',

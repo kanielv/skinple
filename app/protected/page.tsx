@@ -86,7 +86,7 @@ export default async function ProtectedPage() {
   {/* Right Section */}
   <div className="w-1/2 h-full">
     <img
-      src="./app/skinple2.webp"
+      src="/skinple2.webp"
       alt="Skincare Model"
       style={{
         width: '100%',
