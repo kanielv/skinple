@@ -58,12 +58,12 @@ export default async function RecommendationsPage({ params }: { params: { page: 
       {/* Pagination controls */}
       <div className="mt-8 flex justify-between">
         {currentPage > 1 && (
-          <Link href={`/protected/recommendations/${currentPage - 1}`} className="text-blue-600">
+          <Link href={`/protected/recommendations/${currentPage - 1}`} style={{color:"#eb907f"}}>
             ← Previous
           </Link>
         )}
         {currentPage < totalPages && (
-          <Link href={`/protected/recommendations/${currentPage + 1}`} className="text-blue-600 ml-auto">
+          <Link href={`/protected/recommendations/${currentPage + 1}`} style={{color:"#eb907f"}} className="ml-auto">
             Next →
           </Link>
         )}
