@@ -112,6 +112,7 @@ return (
         </div>
         <div>
             <input type="checkbox" id="dum" name="dum" value="dum" />
+
             <label htmlFor="unsure">Rash</label>
         </div>
         <div>
