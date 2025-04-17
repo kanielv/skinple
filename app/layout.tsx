@@ -6,6 +6,7 @@ import { hasEnvVars } from '@/utils/supabase/check-env-vars';
 import { Geist } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import Link from 'next/link';
+import NavBar from '@/components/nav-bar';
 import './globals.css';
 import './../style.css';
 const defaultUrl = process.env.VERCEL_URL
@@ -30,9 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={geistSans.className} suppressHydrationWarning>
-      <body className='bg-[#FEFCF3] text-foreground'>
+      <body className='bg-[#f8edeb] text-foreground'>
         <main>
-          <nav>
+          <NavBar />
+          {/* <nav>
             <header className='flex items-center justify-end bg-[#DBA39A] p-1 shadow-sm'>
               <div className='rightspace topspace ml-auto'>
                 <HeaderAuth />
@@ -69,7 +71,7 @@ export default function RootLayout({
                 </Link>
               </div>
             </div>
-          </nav>
+          </nav> */}
           <div>{children}</div>
         </main>
       </body>
