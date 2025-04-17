@@ -29,7 +29,7 @@ export default async function ProtectedPage() {
   <div
     className="flex flex-col justify-center items-start w-1/2 p-8"
     style={{
-      paddingLeft: '5%', // Added extra left padding to move content to the right
+      paddingLeft: '5%', 
     }}
   >
     <h1
@@ -52,16 +52,6 @@ export default async function ProtectedPage() {
     >
       Explore personalized skincare recommendations and build your own list of products.
     </p>
-    {/* <p
-      style={{
-        fontSize: '1.2rem',
-        color: '#555',
-        marginTop: '10px',
-        fontFamily: 'DM Sans, sans-serif',
-      }}
-    >
-      We believe everyone should be able to easily find skincare that works for them!
-    </p> */}
     <div
       className="mt-6"
       style={{

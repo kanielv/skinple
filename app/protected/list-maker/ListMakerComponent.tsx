@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { saveListToDatabase } from './actions';
+
 
 
 export default function ListMakerComponent() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedProducts, setSelectedProducts] = useState<any[]>([]);
   const [totalPrice, setTotalPrice] = useState(0.0);
+  const [listName, setListName] = useState(''); 
 
   const router = useRouter();
 
@@ -74,11 +77,33 @@ export default function ListMakerComponent() {
     URL.revokeObjectURL(url);
   };
 
+  const handleSaveList = async () => {
+    try {
+      if (!listName.trim()) {
+        alert('Please enter a name for your list.');
+        return;
+      }
+
+      const exportData = {
+        selectedProducts,
+        totalPrice,
+      };
+
+      const blob = new Blob([JSON.stringify(exportData, null, 2)], {
+        type: 'application/json',
+      });
+
+      const message = await saveListToDatabase(blob, listName); 
+      alert(message);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">List Maker</h1>
 
-      {/* Step 1: Select a category */}
       <div className="mb-4">
         <h2 className="text-lg font-semibold">Select a Category</h2>
         <div className="flex gap-2">
@@ -133,7 +158,20 @@ export default function ListMakerComponent() {
         </div>
       </div>
 
-      {/* Step 3: Display selected products and total price */}
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold">Name Your List</h2>
+        <input
+          type="text"
+          value={listName}
+          onChange={(e) => setListName(e.target.value)}
+          placeholder="Enter list name"
+          className="px-4 py-2 border rounded"
+          style={{
+            width: '10%', 
+          }}
+        />
+      </div>
+
       <div>
         <h2 className="text-lg font-semibold">Selected Products</h2>
         <ul className="list-disc pl-5">
@@ -159,12 +197,20 @@ export default function ListMakerComponent() {
         <h3 className="mt-4 text-lg font-bold">
           Total Price: ${totalPrice}
         </h3>
-        <button
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-          onClick={handleExportList}
-        >
-          Export List
-        </button>
+        <div className="flex gap-4 mt-4">
+          <button
+            className="px-4 py-2 bg-green-500 text-white rounded"
+            onClick={handleSaveList}
+          >
+            Save List
+          </button>
+          <button
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+            onClick={handleExportList}
+          >
+            Export List
+          </button>
+        </div>
       </div>
     </div>
   );
