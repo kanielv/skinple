@@ -116,49 +116,161 @@ export default function ListMakerComponent() {
         <h2 className='text-lg font-semibold'>Select a Category</h2>
         <div className='flex gap-2'>
           <button
-            className='rounded bg-blue-500 px-4 py-2 text-white'
+            style={{
+              display: 'inline-block',
+              padding: '8px 16px', 
+              backgroundColor: '#ffb5a7',
+              color: '#fffafa',
+              fontSize: '1rem', 
+              textDecoration: 'none',
+              borderRadius: '6px', 
+              fontFamily: 'DM Sans, sans-serif',
+              textAlign: 'center',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', 
+              whiteSpace: 'nowrap',
+              cursor: 'pointer',
+              minWidth: '120px', 
+            }}
             onClick={() => handleCategorySelect('Moisturiser')}
           >
             Moisturizer
           </button>
           <button
-            className='rounded bg-blue-500 px-4 py-2 text-white'
+            style={{
+              display: 'inline-block',
+              padding: '8px 16px',
+              backgroundColor: '#ffb5a7',
+              color: '#fffafa',
+              fontSize: '1rem',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              fontFamily: 'DM Sans, sans-serif',
+              textAlign: 'center',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+              whiteSpace: 'nowrap',
+              cursor: 'pointer',
+              minWidth: '120px',
+            }}
             onClick={() => handleCategorySelect('Cleanser')}
           >
             Cleanser
           </button>
           <button
-            className='rounded bg-blue-500 px-4 py-2 text-white'
+            style={{
+              display: 'inline-block',
+              padding: '8px 16px',
+              backgroundColor: '#ffb5a7',
+              color: '#fffafa',
+              fontSize: '1rem',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              fontFamily: 'DM Sans, sans-serif',
+              textAlign: 'center',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+              whiteSpace: 'nowrap',
+              cursor: 'pointer',
+              minWidth: '120px',
+            }}
             onClick={() => handleCategorySelect('Toner')}
           >
             Toner
           </button>
           <button
-            className='rounded bg-blue-500 px-4 py-2 text-white'
+            style={{
+              display: 'inline-block',
+              padding: '8px 16px',
+              backgroundColor: '#ffb5a7',
+              color: '#fffafa',
+              fontSize: '1rem',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              fontFamily: 'DM Sans, sans-serif',
+              textAlign: 'center',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+              whiteSpace: 'nowrap',
+              cursor: 'pointer',
+              minWidth: '120px',
+            }}
             onClick={() => handleCategorySelect('Serum')}
           >
             Serum
           </button>
           <button
-            className='rounded bg-blue-500 px-4 py-2 text-white'
+            style={{
+              display: 'inline-block',
+              padding: '8px 16px',
+              backgroundColor: '#ffb5a7',
+              color: '#fffafa',
+              fontSize: '1rem',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              fontFamily: 'DM Sans, sans-serif',
+              textAlign: 'center',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+              whiteSpace: 'nowrap',
+              cursor: 'pointer',
+              minWidth: '120px',
+            }}
             onClick={() => handleCategorySelect('Oil')}
           >
             Oil
           </button>
           <button
-            className='rounded bg-blue-500 px-4 py-2 text-white'
+            style={{
+              display: 'inline-block',
+              padding: '8px 16px',
+              backgroundColor: '#ffb5a7',
+              color: '#fffafa',
+              fontSize: '1rem',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              fontFamily: 'DM Sans, sans-serif',
+              textAlign: 'center',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+              whiteSpace: 'nowrap',
+              cursor: 'pointer',
+              minWidth: '120px',
+            }}
             onClick={() => handleCategorySelect('Mask')}
           >
             Mask
           </button>
           <button
-            className='rounded bg-blue-500 px-4 py-2 text-white'
+            style={{
+              display: 'inline-block',
+              padding: '8px 16px',
+              backgroundColor: '#ffb5a7',
+              color: '#fffafa',
+              fontSize: '1rem',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              fontFamily: 'DM Sans, sans-serif',
+              textAlign: 'center',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+              whiteSpace: 'nowrap',
+              cursor: 'pointer',
+              minWidth: '120px',
+            }}
             onClick={() => handleCategorySelect('Exfoliator')}
           >
             Exfoliator
           </button>
           <button
-            className='rounded bg-blue-500 px-4 py-2 text-white'
+            style={{
+              display: 'inline-block',
+              padding: '8px 16px',
+              backgroundColor: '#ffb5a7',
+              color: '#fffafa',
+              fontSize: '1rem',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              fontFamily: 'DM Sans, sans-serif',
+              textAlign: 'center',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+              whiteSpace: 'nowrap',
+              cursor: 'pointer',
+              minWidth: '120px',
+            }}
             onClick={() => handleCategorySelect('Body Wash')}
           >
             Body Wash
@@ -204,19 +316,47 @@ export default function ListMakerComponent() {
         </ul>
         <h3 className='mt-4 text-lg font-bold'>Total Price: ${totalPrice}</h3>
         <div className='mt-4 flex gap-4'>
-          <button
-            className='rounded bg-green-500 px-4 py-2 text-white'
-            onClick={handleSaveList}
-          >
-            Save List
-          </button>
-          <button
-            className='rounded bg-blue-500 px-4 py-2 text-white'
-            onClick={handleExportList}
-          >
-            Export List
-          </button>
-        </div>
+        <button
+          onClick={handleSaveList}
+          style={{
+            display: 'inline-block',
+            padding: '12px 32px',
+            backgroundColor: '#ffb5a7', // Adjust color if needed
+            color: '#fffafa',
+            fontSize: '1.2rem',
+            textDecoration: 'none',
+            borderRadius: '8px',
+            fontFamily: 'DM Sans, sans-serif',
+            textAlign: 'center',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            whiteSpace: 'nowrap',
+            cursor: 'pointer',
+            minWidth: '160px',
+          }}
+        >
+          Save List
+        </button>
+        <button
+          onClick={handleExportList}
+          style={{
+            display: 'inline-block',
+            padding: '12px 32px',
+            backgroundColor: '#fec89b', // Adjust color if needed
+            color: '#fffafa',
+            fontSize: '1.2rem',
+            textDecoration: 'none',
+            borderRadius: '8px',
+            fontFamily: 'DM Sans, sans-serif',
+            textAlign: 'center',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            whiteSpace: 'nowrap',
+            cursor: 'pointer',
+            minWidth: '160px',
+          }}
+        >
+          Export List
+        </button>
+      </div>
       </div>
     </div>
   );

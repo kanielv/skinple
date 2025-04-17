@@ -119,18 +119,19 @@ export default function SearchBar() {
       <div className='space-y-4'>
         {products.map((product) => (
           <div key={product.product_id}>
-            <SearchCard
-              name={product.product_name}
-              productId={product.product_id}
-              type={product.product_type}
-              price={`${product.price}`}
-            />
-            <button
-              className='mt-2 w-full rounded bg-green-500 px-4 py-2 text-white'
-              onClick={() => handleAddProduct(product)}
-            >
-              Add to List
-            </button>
+        <SearchCard
+          name={product.product_name}
+          productId={product.product_id}
+          type={product.product_type}
+          price={`${product.price}`}
+        />
+        <button
+          className='mt-2 w-full rounded px-4 py-2 text-white'
+          style={{ backgroundColor: '#fec89b' }}
+          onClick={() => handleAddProduct(product)}
+        >
+          Add to List
+        </button>
           </div>
         ))}
       </div>

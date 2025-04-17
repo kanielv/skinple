@@ -37,7 +37,7 @@ export default async function ProtectedPage() {
             fontFamily: 'Lora, serif',
             color: '#4a4a4a',
             whiteSpace: 'nowrap',
-            marginBottom: '20px', // Add spacing below the heading
+            marginBottom: '10px', // Add spacing below the heading
             marginTop: '75px',
           }}
         >
@@ -47,11 +47,11 @@ export default async function ProtectedPage() {
           style={{
             fontSize: '1.2rem',
             color: '#4a4a4a',
-            marginBottom: '30px', // Add spacing below the paragraph
+            marginBottom: '15px', // Add spacing below the paragraph
             fontFamily: 'DM Sans, sans-serif',
           }}
         >
-          Explore personalized skincare recommendations and build your own list
+          Explore personalized skincare recommendations and build lists
           of products.
         </p>
         <div
