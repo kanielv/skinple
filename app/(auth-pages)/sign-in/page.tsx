@@ -11,9 +11,9 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
     <form className='flex min-w-64 flex-1 flex-col'>
       <h1 className='text-2xl font-medium'>Sign in</h1>
       <p className='text-sm text-foreground'>
-        Don't have an account?
+        Don't have an account?&nbsp;
         <Link className='font-medium text-foreground underline' href='/sign-up'>
-          Sign up
+           Sign up
         </Link>
       </p>
       <div className='mt-8 flex flex-col gap-2 [&>input]:mb-3'>

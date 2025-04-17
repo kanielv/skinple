@@ -22,7 +22,7 @@ export default function ListMakerComponent() {
     setTotalPrice(
       storedProducts.reduce(
         (total: number, product: any) =>
-          total + parseFloat(product.price.substring(1)),
+          +(total + parseFloat(product.price.substring(1))).toFixed(2),
         0,
       ),
     );
@@ -36,7 +36,7 @@ export default function ListMakerComponent() {
       setTotalPrice(
         updatedProducts.reduce(
           (total: number, product: any) =>
-            total + parseFloat(product.price.substring(1)),
+            +(total + parseFloat(product.price.substring(1))).toFixed(2),
           0,
         ),
       );
@@ -61,7 +61,7 @@ export default function ListMakerComponent() {
     );
     setSelectedProducts(updatedProducts);
     setTotalPrice((prev) =>
-      Math.max(0, prev - parseFloat(product.price.substring(1))),
+      +Math.max(0, (prev - parseFloat(product.price.substring(1)))).toFixed(2),
     ); // Ensure totalPrice doesn't go below 0
     localStorage.setItem('selectedProducts', JSON.stringify(updatedProducts));
   };
@@ -87,10 +87,10 @@ export default function ListMakerComponent() {
 
   const handleSaveList = async () => {
     try {
-      if (!listName.trim()) {
-        alert('Please enter a name for your list.');
-        return;
-      }
+      // if (!listName.trim()) {
+      //   alert('Please enter a name for your list.');
+      //   return;
+      // }
 
       const exportData = {
         selectedProducts,
@@ -278,7 +278,7 @@ export default function ListMakerComponent() {
         </div>
       </div>
 
-      <div className='mb-4'>
+      {/* <div className='mb-4'>
         <h2 className='text-lg font-semibold'>Name Your List</h2>
         <input
           type='text'
@@ -290,7 +290,7 @@ export default function ListMakerComponent() {
             width: '10%',
           }}
         />
-      </div>
+      </div> */}
 
       <div>
         <h2 className='text-lg font-semibold'>Selected Products</h2>
@@ -316,7 +316,7 @@ export default function ListMakerComponent() {
         </ul>
         <h3 className='mt-4 text-lg font-bold'>Total Price: ${totalPrice}</h3>
         <div className='mt-4 flex gap-4'>
-        <button
+        {/* <button
           onClick={handleSaveList}
           style={{
             display: 'inline-block',
@@ -335,7 +335,7 @@ export default function ListMakerComponent() {
           }}
         >
           Save List
-        </button>
+        </button> */}
         <button
           onClick={handleExportList}
           style={{

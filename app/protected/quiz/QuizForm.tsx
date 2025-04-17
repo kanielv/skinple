@@ -222,27 +222,28 @@ export default function QuizForm({ userId }: QuizFormProps) {
         </div>
       )}
       <br />
-      <button
-        type='submit'
-        className='submit-btn mt-4'
-        style={{
-            display: 'inline-block',
-            padding: '12px 32px',
-            backgroundColor: '#ffb5a7',
-            color: '#fffafa',
-            fontSize: '1.2rem',
-            textDecoration: 'none',
-            borderRadius: '8px',
-            fontFamily: 'DM Sans, sans-serif',
-            textAlign: 'center',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-            whiteSpace: 'nowrap',
-            cursor: 'pointer',
-            minWidth: '220px',
-        }}
-        >
-        <b>Submit Survey</b>
-        </button>
+    <button
+      type='submit'
+      className='submit-btn mt-4'
+      style={{
+        display: 'inline-block',
+        padding: '12px 32px',
+        backgroundColor: '#ffb5a7',
+        color: '#fffafa',
+        fontSize: '1.2rem',
+        textDecoration: 'none',
+        borderRadius: '8px',
+        fontFamily: 'DM Sans, sans-serif',
+        textAlign: 'center',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        whiteSpace: 'nowrap',
+        cursor: 'pointer',
+        minWidth: '220px',
+        border: 'none',
+      }}
+      >
+      <b>Submit Survey</b>
+      </button>
     </form>
   );
 }
