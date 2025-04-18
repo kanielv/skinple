@@ -5,17 +5,17 @@ interface SearchCardProps {
   productId: string;
   type: string;
   price: string;
-  description: string
-  product_link: string
+  description: string;
+  product_link: string;
 }
 
 export default function SearchCard({
   name,
-  productId,
+  // productId,
   type,
   price,
   description,
-  product_link
+  product_link,
 }: SearchCardProps) {
   return (
     <div className='w-full rounded-xl border bg-white p-4 shadow-sm'>
@@ -38,7 +38,6 @@ export default function SearchCard({
       <p className='text-sm'>
         <span className='font-medium'>Price:</span> {price}
       </p>
-
     </div>
   );
 }
