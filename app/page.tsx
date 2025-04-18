@@ -14,10 +14,9 @@ export default async function Home() {
           style={{
             fontSize: '4rem',
             fontWeight: 'medium',
-            fontFamily: 'Geist Sans, sans-serif',
+            fontFamily: 'Geist Sans Serif, sans-serif', // Updated font
             color: '#4a4a4a',
-            whiteSpace: 'nowrap',
-            marginBottom: '10px',
+            marginBottom: '20px', // Add spacing below the heading
             marginTop: '120px',
           }}
         >
@@ -27,13 +26,12 @@ export default async function Home() {
           style={{
             fontSize: '1.2rem',
             color: '#4a4a4a',
-            marginBottom: '15px', 
-            fontFamily: 'Geist Sans, sans-serif',
-            marginLeft: '4px', 
+            marginBottom: '15px', // Add spacing below the paragraph
+            fontFamily: 'Geist Sans Serif, sans-serif', // Updated font
           }}
         >
-          Explore personalized skincare recommendations and build lists
-          of products.
+          Explore personalized skincare recommendations and build lists of
+          products.
         </p>
         <div
           className='mt-6'
@@ -53,7 +51,7 @@ export default async function Home() {
               fontSize: '1.2rem',
               textDecoration: 'none',
               borderRadius: '8px',
-              fontFamily: 'Geist Sans, sans-serif', 
+              fontFamily: 'Geist Sans, sans-serif',
               textAlign: 'center',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
               whiteSpace: 'nowrap',
